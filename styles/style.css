@@ -1,0 +1,209 @@
+/* Variables */
+:root {
+	/* Text */
+	--very-dark-desaturated-blue: hsl(238, 29%, 16%);
+	--soft-red: hsl(14, 88%, 65%);
+	--dark-desaturated-blue: hsl(237, 11.8%, 33.3%);
+	/* Gradient */
+	--soft-violet: hsl(273, 75%, 66%);
+	--soft-blue: hsl(240, 73%, 65%);
+	/* Card */
+	--white: #fff;
+	/* More text */
+	--very-dark-grayish-blue: hsl(237, 12%, 33%);
+	--dark-grayish-blue: hsl(240, 6%, 50%);
+	/* Dividers */
+	--light-grayish-blue: hsl(240, 5%, 91%);
+	/* Shadow */
+	--image-shadow-color: rgba(104, 98, 230, 12%);
+}
+
+/* Resets */
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+/* general styles */
+body {
+	font-family: 'kumbh Sans', sans-serif;
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+h1 {
+	font-size: 32px;
+	text-align: center;
+	padding-top: 4em;
+}
+
+label {
+	font-size: 13px;
+}
+
+/* Background / Main container */
+.container {
+	height: 100%;
+	min-height: 100vh;
+	display: grid;
+	background: var(--soft-violet);
+	background: linear-gradient(180deg, var(--soft-violet) 0%, var(--soft-blue) 100%);
+}
+
+/* main card */
+main {
+	background: #fff;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin: auto;
+	max-width: 920px;
+	min-height: 535px;
+	width: 327px;
+}
+
+.img-container {
+	position: absolute;
+}
+
+.woman-image {
+	position: relative;
+	bottom: 110px;
+	left: 5%;
+	filter: drop-shadow(0px 25px var(--image-shadow-color));
+}
+
+.woman-image-desktop {
+	display: none;
+}
+
+.box-image-desktop {
+	display: none;
+}
+
+/* Togglable section code. */
+
+/* hide actual checkbox */
+input[type='checkbox'] {
+	display: none;
+}
+
+.wrap-collapsible {
+	width: 85%;
+	margin: auto;
+}
+
+/* Styling for label */
+.lbl-toggle {
+	display: flex;
+	cursor: pointer;
+
+	color: var(--dark-desaturated-blue);
+	padding: 0.5em 0 0.6em 0.1em;
+}
+
+.lbl-toggle:hover {
+	color: var(--soft-red);
+}
+
+/* Arrow. try to replace with image. */
+.lbl-toggle::after {
+	content: url('../images/icon-arrow-down.svg');
+	margin-left: auto;
+}
+
+/* Style inner */
+.collapsible-content .content-inner {
+	color: var(--dark-grayish-blue);
+	padding-bottom: 1.2em;
+}
+
+/* hide content initially. */
+.collapsible-content {
+	max-height: 0px;
+	overflow: hidden;
+	transition: max-height 0.25s ease-out;
+	border-bottom: 1.5px solid var(--light-grayish-blue);
+}
+
+/* When toggle is checked apply styles to siblings(look up selector) */
+.toggle:checked + .lbl-toggle + .collapsible-content {
+	max-height: 100vh;
+	transition: max-height 0.25s ease-out;
+}
+
+.toggle:checked + .lbl-toggle {
+	font-weight: 700;
+	color: var(--very-dark-desaturated-blue);
+}
+
+/* Animate toggle arrow */
+.toggle:checked + .lbl-toggle::after {
+	transform: rotateX(180deg);
+	transition: transform 0.5s;
+}
+
+/* Media Queries */
+
+@media (min-width: 900px) {
+	main {
+		width: 920px;
+		z-index: 2;
+		display: flex;
+		flex-direction: row;
+		min-height: 535px;
+		margin: auto;
+		background: #fff;
+		border-radius: 20px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		background-image: url(../images/bg-pattern-desktop.svg);
+		background-repeat: no-repeat;
+		background-position: left -570px bottom -120px;
+	}
+
+	.woman-image {
+		display: none;
+	}
+
+	.img-container {
+		overflow: hidden;
+		padding-right: 50%;
+	}
+
+	.box-container {
+		position: absolute;
+	}
+
+	.box-image-desktop {
+		display: block;
+		position: relative;
+		bottom: 140px;
+		right: 92px;
+	}
+
+	.woman-image-desktop {
+		z-index: -1;
+		display: block;
+		position: relative;
+		right: 80px;
+		top: 80px;
+	}
+
+	.img-container {
+		width: 50%;
+		position: static;
+	}
+
+	h1 {
+		text-align: start;
+		padding: 2em 1.2em 0.7em;
+	}
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
