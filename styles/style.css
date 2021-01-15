@@ -138,7 +138,7 @@ body {
 	border-bottom: 0.15em solid var(--light-grayish-blue);
 	max-height: 0px;
 	overflow: hidden;
-	transition: max-height 1s ease-out;
+	transition: max-height 0.25s ease-out;
 }
 
 /* When toggle is checked apply styles to siblings(look up selector) */
@@ -175,6 +175,10 @@ body {
 		overflow: hidden;
 	}
 
+	.md-txt {
+		font-size: 1.4rem;
+	}
+
 	.header-image {
 		display: none;
 	}
@@ -191,10 +195,23 @@ body {
 	}
 
 	.box-image-desktop {
-		bottom: 14em;
+		bottom: 14.5em;
 		display: block;
 		position: relative;
-		right: 9.2em;
+		right: 9.4em;
+	}
+
+	.content {
+		align-self: center;
+	}
+
+	.headline {
+		text-align: start;
+		padding-bottom: 1.5em;
+	}
+
+	.collapsible-container {
+		margin: 0;
 	}
 }
 
